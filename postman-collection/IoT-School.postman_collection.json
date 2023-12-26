@@ -1,0 +1,325 @@
+{
+  "info": {
+    "_postman_id": "4d76a19c-8346-484c-8b4f-21ea092ebde5",
+    "name": "IoT-School",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17461371",
+    "_collection_link": "https://iot-platform-506330.postman.co/workspace/Team-Workspace~336e2922-eab3-4771-8940-55213fae5c16/collection/17461371-4d76a19c-8346-484c-8b4f-21ea092ebde5?action=share&creator=17461371&source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Backend App",
+      "item": [
+        {
+          "name": "Device Filter Config",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/backend-app/device-filter/config?version=v1.0.5&route=tourist-route",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "backend-app",
+                "device-filter",
+                "config"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "v1.0.5"
+                },
+                {
+                  "key": "route",
+                  "value": "tourist-route"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Device Set Tags",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/backend-app/device-tags/:deviceId?region=Tunisia&plant=Lac2&connectivityType=Wifi&driverName=Irad&manufacturer=DB&manufacturingDate=2005",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "backend-app",
+                "device-tags",
+                ":deviceId"
+              ],
+              "query": [
+                {
+                  "key": "region",
+                  "value": "Tunisia"
+                },
+                {
+                  "key": "plant",
+                  "value": "Lac2"
+                },
+                {
+                  "key": "connectivityType",
+                  "value": "Wifi"
+                },
+                {
+                  "key": "driverName",
+                  "value": "Irad"
+                },
+                {
+                  "key": "manufacturer",
+                  "value": "DB"
+                },
+                {
+                  "key": "manufacturingDate",
+                  "value": "2005"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "deviceId",
+                  "value": "tunis-station-tourist-route"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Device Filter Tags",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/backend-app/device-filter/tags?region=Tunisia&plant=Lac2&connectivityType=Wifi&driverName=Irad&manufacturer=DB&manufacturingDate=2005",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "backend-app",
+                "device-filter",
+                "tags"
+              ],
+              "query": [
+                {
+                  "key": "region",
+                  "value": "Tunisia"
+                },
+                {
+                  "key": "plant",
+                  "value": "Lac2"
+                },
+                {
+                  "key": "connectivityType",
+                  "value": "Wifi"
+                },
+                {
+                  "key": "driverName",
+                  "value": "Irad"
+                },
+                {
+                  "key": "manufacturer",
+                  "value": "DB"
+                },
+                {
+                  "key": "manufacturingDate",
+                  "value": "2005"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Device Update Twin Properties",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "pm.collectionVariables.set(\"deviceId\", \"e2e-test-device\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/backend-app/device-properties/:deviceId?temperature=20&lights=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "backend-app",
+                "device-properties",
+                ":deviceId"
+              ],
+              "query": [
+                {
+                  "key": "temperature",
+                  "value": "20"
+                },
+                {
+                  "key": "lights",
+                  "value": "1"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "deviceId",
+                  "value": "tunis-station-tourist-route"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Device Filter Temperature",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/backend-app/device-filter/temperature?hotter=20",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "backend-app",
+                "device-filter",
+                "temperature"
+              ],
+              "query": [
+                {
+                  "key": "hotter",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Device Reboot Method",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "pm.collectionVariables.set(\"deviceId\", \"e2e-test-device\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/backend-app/device-method/:deviceId?methodName=reboot",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "backend-app",
+                "device-method",
+                ":deviceId"
+              ],
+              "query": [
+                {
+                  "key": "methodName",
+                  "value": "reboot"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "deviceId",
+                  "value": "tunis-station-tourist-route"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Device C2D Method",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "pm.collectionVariables.set(\"deviceId\", \"e2e-test-device\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\"Hello from backend\"",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/backend-app/device-method/:deviceId?methodName=announce",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "backend-app",
+                "device-method",
+                ":deviceId"
+              ],
+              "query": [
+                {
+                  "key": "methodName",
+                  "value": "announce"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "deviceId",
+                  "value": "tunis-station-tourist-route"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "deviceId",
+      "value": ""
+    }
+  ]
+}
